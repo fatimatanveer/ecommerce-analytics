@@ -150,20 +150,24 @@ This project addresses these challenges by building a scalable architecture to a
 
 **Clone the Repository**:
 
-git clone https://github.com/username/ecommerce-analytics.git
-cd ecommerce-analytics
+
+`git clone https://github.com/username/ecommerce-analytics.git
+cd ecommerce-analytics`
 
 **Start Kafka**:
-Follow the Kafka setup guide and start the producer and consumer.
+
+`Follow the Kafka setup guide and start the producer and consumer.`
 
 **Run Spark Jobs**:
-Execute transformation and aggregation scripts.
+
+`Execute transformation and aggregation scripts.`
 
 **Deploy Flask Dashboard**:
 
-python app.py
+`python app.py`
 
 **Access the Dashboard**:
+
 Open http://localhost:5000 in your browser.
 
 Screenshots
