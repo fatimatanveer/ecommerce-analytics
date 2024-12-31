@@ -156,11 +156,11 @@ cd ecommerce-analytics`
 
 **Start Kafka**:
 
-`Follow the Kafka setup guide and start the producer and consumer.`
+Follow the Kafka setup guide and start the producer and consumer.
 
 **Run Spark Jobs**:
 
-`Execute transformation and aggregation scripts.`
+Execute transformation and aggregation scripts.
 
 **Deploy Flask Dashboard**:
 
