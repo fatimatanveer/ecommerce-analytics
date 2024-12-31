@@ -1,4 +1,4 @@
-# ecommerce-analytics
+# Ecommerce-analytics
 # Real-Time E-Commerce Analytics with Big Data Tools
 
 ## Overview
@@ -170,29 +170,5 @@ Execute transformation and aggregation scripts.
 
 Open http://localhost:5000 in your browser.
 
-Screenshots
 
-Top 10 Selling Products
-
-
-Admin Dashboard Overview
-
-
-Diagrams
-
-Pipeline Overview:
-
-Data flow from generation -> Kafka -> HDFS -> Spark -> HBase -> Dashboards.
-
-Architecture Diagram:
-
-High-level architecture showing components and interactions.
-
-Credits
-
-Contributor: Fatima Tanveer.
-
-Tools: Open-source frameworks and libraries.
-
-Feel free to open issues or contribute to this repository!
 
