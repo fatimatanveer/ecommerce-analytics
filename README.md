@@ -53,7 +53,7 @@ This project addresses these challenges by building a scalable architecture to a
 
 **Commands**:
 
-hadoop fs -put ecommerce_data.csv /user/hadoop/ecommerce_data
+`hadoop fs -put ecommerce_data.csv /user/hadoop/ecommerce_data`
 
 **Data Transformation with Spark**:
 
@@ -65,16 +65,16 @@ hadoop fs -put ecommerce_data.csv /user/hadoop/ecommerce_data
 
 - Data is loaded into HBase using the following MapReduce commands:
 
-hbase org.apache.hadoop.hbase.mapreduce.ImportTsv \
+`hbase org.apache.hadoop.hbase.mapreduce.ImportTsv \
   -Dimporttsv.separator=, \
   -Dimporttsv.columns='HBASE_ROW_KEY,basic_info:customer_id,...' \
   -Dimporttsv.bulk.output=/user/hadoop/hbase_hfiles \
   ecommerce_table \
-  hdfs://namenode:9000/user/hadoop/ecommerce_data_part2.csv
+  hdfs://namenode:9000/user/hadoop/ecommerce_data_part2.csv`
 
-hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles \
+`hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles \
   /user/hadoop/hbase_hfiles \
-  ecommerce_table
+  ecommerce_table`
 
 - Outcome: Cleaned and structured data stored in a scalable columnar database.
 
