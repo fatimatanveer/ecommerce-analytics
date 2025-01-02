@@ -91,6 +91,7 @@ This project addresses these challenges by building a scalable architecture to a
 **Output**:
 
 ![hbase output](screenshots/hbase_output)
+
 ![hbase output](screenshots/hbaseoutput.jpeg)
 
 
