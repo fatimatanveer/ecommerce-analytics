@@ -44,11 +44,12 @@ This project addresses these challenges by building a scalable architecture to a
   - Producer reads data from `ecommerce_data_part1.csv` and streams 1,000 rows to the Kafka topic `bda_proj` every 10 seconds.
   - Consumer listens to the Kafka topic, processes messages, and forwards data to HDFS for storage.
 - **Outcome**: Real-time simulation of data ingestion into the pipeline.
-- 
- ** Output of Producer code:
+  
+**Output of Producer code**:
+  
 ![Kafka Producer](screenshots/producer_output)
 
- ** Output of Consumer code:
+**Output of Consumer code**:
 
 ![Kafka Consumer](screenshots/consumeroutput)
 
@@ -90,6 +91,8 @@ This project addresses these challenges by building a scalable architecture to a
 **Output**:
 
 ![hbase output](screenshots/hbase_output)
+![hbase output](screenshots/hbaseoutput)
+
 
 
 - Outcome: Cleaned and structured data stored in a scalable columnar database.
