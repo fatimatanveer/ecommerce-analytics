@@ -91,7 +91,7 @@ This project addresses these challenges by building a scalable architecture to a
 **Output**:
 
 ![hbase output](screenshots/hbase_output)
-![hbase output](screenshots/hbaseoutput)
+![hbase output](screenshots/hbaseoutput.jpeg)
 
 
 
@@ -105,7 +105,7 @@ This project addresses these challenges by building a scalable architecture to a
 
 - Top Selling Products.
 
-![topsales](dashboard/topsales)
+![topsales](dashboard/topsales.jpeg)
 
 - Product category popularity.
 
@@ -149,6 +149,10 @@ This project addresses these challenges by building a scalable architecture to a
 **Visualization**: Flask, Plotly, Matplotlib.
 
 **Orchestration**: Dockerized components.
+
+**Architecture**:
+
+![arch](arch.jpeg)
 
 ## Limitations
 
