@@ -44,6 +44,13 @@ This project addresses these challenges by building a scalable architecture to a
   - Producer reads data from `ecommerce_data_part1.csv` and streams 1,000 rows to the Kafka topic `bda_proj` every 10 seconds.
   - Consumer listens to the Kafka topic, processes messages, and forwards data to HDFS for storage.
 - **Outcome**: Real-time simulation of data ingestion into the pipeline.
+- 
+ ** Output of Producer code:
+![Kafka Producer](screenshots/producer_output)
+
+ ** Output of Consumer code:
+
+![Kafka Consumer](screenshots/consumeroutput)
 
 ### 3. Data Storage and Transformation
 
@@ -71,10 +78,19 @@ This project addresses these challenges by building a scalable architecture to a
   -Dimporttsv.bulk.output=/user/hadoop/hbase_hfiles \
   ecommerce_table \
   hdfs://namenode:9000/user/hadoop/ecommerce_data_part2.csv`
+  
+**Output**:
+
+![hbase scan](screenshots/hbase_scan)
 
 `hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles \
   /user/hadoop/hbase_hfiles \
   ecommerce_table`
+
+**Output**:
+
+![hbase output](screenshots/hbase_output)
+
 
 - Outcome: Cleaned and structured data stored in a scalable columnar database.
 
@@ -84,13 +100,22 @@ This project addresses these challenges by building a scalable architecture to a
 
 **Key Insights**:
 
-- Sales trends over time.
+- Top Selling Products.
+
+![topsales](dashboard/topsales)
 
 - Product category popularity.
 
+![product_category_popularity](dashboard/sales)
+
 - Customer satisfaction ratings.
 
-- Prime vs. Non-Prime customer analysis.
+![rating](dashboard/user_rating)
+
+- Prime vs. Non-Prime Sales.
+
+![prime](dashboard/primevsnonprime)
+
 
 **Dashboards**:
 
