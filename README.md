@@ -184,7 +184,7 @@ This project addresses these challenges by building a scalable architecture to a
 **Clone the Repository**:
 
 
-`git clone https://github.com/username/ecommerce-analytics.git
+`git clone https://github.com/fatimatanveer/ecommerce-analytics.git
 cd ecommerce-analytics`
 
 **Start Kafka**:
