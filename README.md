@@ -181,27 +181,105 @@ This project addresses these challenges by building a scalable architecture to a
 
 ## How to Run
 
-**Clone the Repository**:
+### 1. Prerequisites
 
+- Install and set up Docker on your machine. Refer to the [Docker installation guide](https://docs.docker.com/get-docker/).
 
-`git clone https://github.com/fatimatanveer/ecommerce-analytics.git
-cd ecommerce-analytics`
+### 2. Setting Up the Project
 
-**Start Kafka**:
+1. Create a working directory for the project:
+   ```bash
+   mkdir ecommerce-analytics
+   cd ecommerce-analytics
 
-Follow the Kafka setup guide and start the producer and consumer.
+2. Clone this repository into the directory:
+   ```bash
+   git clone https://github.com/fatimatanveer/ecommerce-analytics.git .
 
-**Run Spark Jobs**:
+### 3. Running the Docker Compose File:
+ 
+ 1. Start the necessary services (Kafka, HDFS, Spark, HBase, etc.) using Docker Compose:
+    ```bash
+    docker-compose -f docker-compose-standalone.yml up -d
 
-Execute transformation and aggregation scripts.
+2. Log in to Docker:
+   ```bash
+   docker login
 
-**Deploy Flask Dashboard**:
+3. Verify that all containers are running:
 
-`python app.py`
+   ```bash
+   docker ps
 
-**Access the Dashboard**:
+### 4. Running Kafka (Producer and Consumer)
 
-Open http://localhost:5000 in your browser.
+1. Open two separate terminals.
 
+2. In the first terminal, run the Kafka producer:
 
+   ```bash
+   python kafka_prod.py
+   
+3. In the second terminal, run the Kafka consumer:
+
+   ```bash
+   python kafkaconsum.py
+
+### 5. Moving Data to HDFS
+
+1. Use the following docker cp command to move the data from your local machine to HDFS:
+
+   ```bash
+   docker cp ecommerce_data_1GB.csv namenode:/ecommerce_data_1GB.csv
+   
+2. Load the data into HDFS:
+
+   ```bash
+   docker exec -it namenode bash
+   hadoop fs -mkdir -p /user/hadoop
+   hadoop fs -put /ecommerce_data_1GB.csv /user/hadoop/ecommerce_data
+
+### 6. Running Spark for Data Transformation
+
+1. Run the Spark transformation script:
+
+   ```bash
+   docker exec -it spark-master-bda bash
+   spark-submit spark_transform.py
+   
+2. Ensure the transformed data is stored in its designated output directory:
+
+   ```bash
+   /user/output/ecommerce_transformed_data
+
+### 7. Moving Data to HBase
+
+1. Start the HBase Thrift server:
+
+   ```bash
+   docker exec -it hbase bash
+   hbase thrift start
+
+2. Run the MapReduce command to load data into HBase:
+
+   ```bash
+    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv \
+      -Dimporttsv.separator=, \
+      -Dimporttsv.columns='HBASE_ROW_KEY,basic_info:customer_id,...' \
+      -Dimporttsv.bulk.output=/user/hadoop/hbase_hfiles \
+      ecommerce_table \
+      hdfs://namenode:9000/user/hadoop/ecommerce_transformed_data
+
+    hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles \
+      /user/hadoop/hbase_hfiles \
+      ecommerce_table
+
+### 8. Running the Analytics Dashboard
+
+1. Run the Python script for the analytics dashboard:
+
+   ```bash
+    python app.py
+
+2. The terminal will display a web link (e.g., http://0.0.0.0:8000). Open this link in your browser to view the dashboard.
 
